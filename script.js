@@ -38,6 +38,7 @@ UI.cashButton.addEventListener('click', () => {
     gameData.cash += 10;
     gameData.drawData();
     gameData.profitFromBeginning += 10;
+    colorPurchaseThatCanBuy();
 });
 
 UI.kioskButton.addEventListener('click', () => {
@@ -94,6 +95,7 @@ function checkCash() {
 
 function mainTimeFunction() {
     checkIfGameLost();
+    
     if (playingGame) {
         timer = setInterval(function () {
             checkCash();
@@ -102,6 +104,7 @@ function mainTimeFunction() {
             gameData.drawData();
             taxes();
             horizontalWealthLine();
+            colorPurchaseThatCanBuy();
         }, 1000);
     }
 }
@@ -158,4 +161,41 @@ function horizontalWealthLine() {
     }
     var linesPosition = positionHL + '%';
     document.getElementById('horizontalLine').style.top = linesPosition;
+}
+
+function colorPurchaseThatCanBuy(){
+    chechIfCanBuyKiosk();
+    chechIfCanBuyShop();
+    chechIfCanBuyBank();
+}
+
+function chechIfCanBuyKiosk(){
+    if (gameData.cash >= 100) {
+        document.querySelector('.kiosk > .purchase').style.color = '#62ff60'
+        document.querySelector('.kiosk > .price').style.color = 'white'
+    } else {
+        document.querySelector('.kiosk > .purchase').style.color = 'grey'
+        document.querySelector('.kiosk > .price').style.color = 'grey'
+    }
+}
+
+function chechIfCanBuyShop(){
+    if (gameData.cash >= 200) {
+        document.querySelector('.shop > .purchase').style.color = '#62ff60'
+        document.querySelector('.shop > .price').style.color = 'white'
+    } else {
+        document.querySelector('.shop > .purchase').style.color = 'grey'
+        document.querySelector('.shop > .price').style.color = 'grey'
+    }
+}
+
+function chechIfCanBuyBank(){
+    if (gameData.cash >= 5000) {
+        document.querySelector('.bank > .purchase').style.color = '#62ff60'
+        document.querySelector('.bank > .price').style.color = 'white'
+
+    } else {
+        document.querySelector('.bank > .purchase').style.color = 'grey'
+        document.querySelector('.bank > .price').style.color = 'grey'
+    }
 }

@@ -11,7 +11,7 @@ h2, h3, span, p, li, .noselect {
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
 }
 .container{
-    margin: 50px auto;
+    margin: auto;
     padding: 0;
     width: 90%;
     min-width: 400px;
@@ -113,12 +113,14 @@ h2, h3, span, p, li, .noselect {
     min-width: 500px;
     font-size: 30px;
     background-image: url('images/city.PNG');
+    background-color: rgba(48, 47, 47, 0.678); 
+    background-blend-mode: darken;
     background-repeat: no-repeat;
 }
 
 .playersEndScore span {
     font-size: 25px;
-    line-height: 5;
+    line-height: 2;
 }
 
 #gameStartContainer {
@@ -186,6 +188,7 @@ h2, h3, span, p, li, .noselect {
     border: 0px;
     width: 50%;
     height: 1.5em;
+    cursor: pointer;
 }
 
 .difficultyLevelText {
@@ -218,7 +221,6 @@ h2, h3, span, p, li, .noselect {
 h2 {
     font: italic bold 28px/38px Georgia, serif;
     color: white;
-    padding: 20px 0;
     background-color: rgba(0, 0, 0, 0.418);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -265,7 +267,7 @@ ul li span {
 
 .purchaseBox span:first-child {
     font-size: 16px;
-    color: white;
+    color: grey;
 }
 
 .purchaseBox img {
@@ -291,7 +293,7 @@ ul li span {
 .price {
     width: 60%;
     font-size: 25px;
-    color: white;
+    color: grey;
 }
 
 .cashButton {
